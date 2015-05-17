@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 #encoding=utf-8
 
 import os
@@ -73,6 +73,7 @@ class MainWindow(QMainWindow):
         sp.setHorizontalStretch(0)
         sp.setVerticalStretch(0)
 
+        i = 0  # init i in case of libfiles is []
         for i, filepath in enumerate(libfiles):
             col = i % self.properties['columnSize']
             row = i // self.properties['columnSize']
