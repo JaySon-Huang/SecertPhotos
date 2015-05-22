@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
         sp.setHorizontalStretch(0)
         sp.setVerticalStretch(0)
 
-        i = 0  # init i in case of libfiles is []
+        i = -1  # init i in case of libfiles is []
         for i, filepath in enumerate(libfiles):
             col = i % self.properties['columnSize']
             row = i // self.properties['columnSize']
