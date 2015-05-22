@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -326,6 +326,11 @@ message =&gt;</string>
         <string>Compare Photo</string>
        </attribute>
       </widget>
+      <widget class="ViewExifTab" name="tab_viewExif">
+       <attribute name="title">
+        <string>Exif Infos</string>
+       </attribute>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -390,6 +395,12 @@ message =&gt;</string>
    <class>ComparePhotoTab</class>
    <extends>QWidget</extends>
    <header>widgets/ComparePhotoTab.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ViewExifTab</class>
+   <extends>QWidget</extends>
+   <header>widgets/ViewExifTab.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

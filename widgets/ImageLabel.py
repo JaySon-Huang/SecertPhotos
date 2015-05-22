@@ -25,7 +25,7 @@ class DoubleClickableLabel(QLabel):
 class ImageLabel(QLabel):
     def __init__(self, text=None, parent=None):
         super().__init__(parent)
-        self.pixmap = None
+        self.clear()
 
     def setImageFileSrc(self, filepath, width=None, height=None):
         pic = QPixmap(filepath)

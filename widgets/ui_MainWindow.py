@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui_MainWindow.ui'
 #
-# Created: Sat May 16 17:19:09 2015
+# Created: Tue May 19 21:28:28 2015
 #      by: PyQt5 UI code generator 5.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -132,6 +132,9 @@ class Ui_MainWindow(object):
         self.tab_comparePhoto = ComparePhotoTab()
         self.tab_comparePhoto.setObjectName("tab_comparePhoto")
         self.tabWidget.addTab(self.tab_comparePhoto, "")
+        self.tab_viewExif = ViewExifTab()
+        self.tab_viewExif.setObjectName("tab_viewExif")
+        self.tabWidget.addTab(self.tab_viewExif, "")
         self.horizontalLayout.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -156,7 +159,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -176,6 +179,7 @@ class Ui_MainWindow(object):
         self.btn_saveToLibrary.setText(_translate("MainWindow", "Save to Library"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_addPhoto), _translate("MainWindow", "Add Photo"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_comparePhoto), _translate("MainWindow", "Compare Photo"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_viewExif), _translate("MainWindow", "Exif Infos"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuAbout.setTitle(_translate("MainWindow", "About"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
@@ -185,5 +189,6 @@ class Ui_MainWindow(object):
         self.actionOpen.setStatusTip(_translate("MainWindow", "Open file..."))
         self.actionOpen.setShortcut(_translate("MainWindow", "Ctrl+F"))
 
-from widgets.ComparePhotoTab import ComparePhotoTab
 from widgets.ImageDetailArea import ImageDetailArea
+from widgets.ComparePhotoTab import ComparePhotoTab
+from widgets.ViewExifTab import ViewExifTab
