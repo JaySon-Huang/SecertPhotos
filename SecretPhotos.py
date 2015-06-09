@@ -12,7 +12,7 @@ from pyjpegtbx import JPEGImage
 from cipher.JPEGImageCipher import JPEGImageCipher1 as JPEGImageCipher
 
 from PyQt5.QtCore import (
-    QDir, Qt, QVariant
+    QDir, Qt, QVariant, pyqtSlot
 )
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QItemDelegate, QLabel, QHeaderView, QGridLayout,
@@ -25,6 +25,7 @@ from PyQt5.QtGui import (
 
 from widgets.GridWidget import GridWidget
 from widgets.ui_MainWindow import Ui_MainWindow
+from utils import password2seed
 from utils.fileUtils import (
     paths, setupPaths, getTmpFilepath, getLibFilepath, moveToLibrary
 )
@@ -35,10 +36,6 @@ pics = ['lfs.jpg', 'tmp0.jpg', 'tmp1.jpg']
 class MainWindow(QMainWindow):
     '''Main Window of Secret Photo'''
 
-    # property
-    properties = {
-        'columnSize': 3
-    }
     # static strings
     strings = {
         'format': {
@@ -59,44 +56,15 @@ class MainWindow(QMainWindow):
         self.setUpTabAddPhoto(self.ui)
 
     def setUpTabLibrary(self, ui):
-        ui.btn_enterPassword.clicked.connect(
-            self.btn_enterPassword_clicked
+        ui.tabWidget.currentChanged.connect(
+            self.on_selected_tab_changed
         )
-        libfiles = []
-        for filename in os.listdir(paths['library']):
-            if filename.endswith('jpeg') or filename.endswith('.jpg'):
-                libfiles.append(os.path.join(paths['library'], filename))
-        print('files in library:', libfiles)
-        self.ui.libraryWidgets = []
 
-        sp = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sp.setHorizontalStretch(0)
-        sp.setVerticalStretch(0)
-
-        i = -1  # init i in case of libfiles is []
-        for i, filepath in enumerate(libfiles):
-            col = i % self.properties['columnSize']
-            row = i // self.properties['columnSize']
-            widget = GridWidget(ui.scrollAreaWidgetContents)
-            sp.setHeightForWidth(widget.sizePolicy().hasHeightForWidth())
-            widget.setSizePolicy(sp)
-            widget.setContent(filepath, (250, 250))
-            ui.gridLayout.addWidget(
-                widget, row, col, Qt.AlignHCenter | Qt.AlignVCenter
-            )
-            self.ui.libraryWidgets.append(widget)
-        while i < 11:
-            i += 1
-            col = i % self.properties['columnSize']
-            row = i // self.properties['columnSize']
-            widget = GridWidget(ui.scrollAreaWidgetContents)
-            sp.setHeightForWidth(widget.sizePolicy().hasHeightForWidth())
-            widget.setSizePolicy(sp)
-            widget.setContent('', None)
-            ui.gridLayout.addWidget(
-                widget, row, col, Qt.AlignHCenter | Qt.AlignVCenter
-            )
-            self.ui.libraryWidgets.append(widget)
+        ui.tab_viewLibrary.setLibraryPath(paths['library'])
+        ui.tab_viewLibrary.refresh()
+        ui.tab_viewLibrary.passwordEntered.connect(
+            self.setSeed
+        )
 
     def setUpTabAddPhoto(self, ui):
         # 绑定同步CheckBox状态改变信号和动作槽
@@ -302,6 +270,15 @@ class MainWindow(QMainWindow):
             self.ui.scrollArea_dst.verticalScrollBar().valueChanged['int'].connect(
                 self.ui.scrollArea_ori.verticalScrollBar().setValue
             )
+
+    @pyqtSlot(str)
+    def setSeed(self, pwd):
+        self.seed = password2seed(pwd)
+
+    @pyqtSlot(int)
+    def on_selected_tab_changed(self, index):
+        if index == 0:
+            self.ui.tab_viewLibrary.refresh()
 
 
 def main():

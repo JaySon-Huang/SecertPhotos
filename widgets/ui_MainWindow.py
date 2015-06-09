@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui_MainWindow.ui'
 #
-# Created: Tue May 19 21:28:28 2015
+# Created: Tue Jun  9 21:46:42 2015
 #      by: PyQt5 UI code generator 5.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,35 +20,8 @@ class Ui_MainWindow(object):
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setElideMode(QtCore.Qt.ElideMiddle)
         self.tabWidget.setObjectName("tabWidget")
-        self.tab_viewLibrary = QtWidgets.QWidget()
+        self.tab_viewLibrary = LibraryTab()
         self.tab_viewLibrary.setObjectName("tab_viewLibrary")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.tab_viewLibrary)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_6.setSpacing(-1)
-        self.horizontalLayout_6.setContentsMargins(-1, 0, -1, -1)
-        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.btn_enterPassword = QtWidgets.QPushButton(self.tab_viewLibrary)
-        self.btn_enterPassword.setObjectName("btn_enterPassword")
-        self.horizontalLayout_6.addWidget(self.btn_enterPassword)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem)
-        self.verticalLayout.addLayout(self.horizontalLayout_6)
-        self.scrollArea = QtWidgets.QScrollArea(self.tab_viewLibrary)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
-        self.scrollArea.setSizePolicy(sizePolicy)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 964, 546))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
-        self.gridLayout.setObjectName("gridLayout")
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.verticalLayout.addWidget(self.scrollArea)
         self.tabWidget.addTab(self.tab_viewLibrary, "")
         self.tab_addPhoto = QtWidgets.QWidget()
         self.tab_addPhoto.setObjectName("tab_addPhoto")
@@ -66,8 +39,8 @@ class Ui_MainWindow(object):
         self.ckbox_scrollMode.setTristate(False)
         self.ckbox_scrollMode.setObjectName("ckbox_scrollMode")
         self.horizontalLayout_3.addWidget(self.ckbox_scrollMode)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem1)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem)
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
@@ -83,8 +56,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setContentsMargins(0, -1, -1, -1)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_5.addItem(spacerItem2)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_5.addItem(spacerItem1)
         self.btn_encrypt = QtWidgets.QPushButton(self.tab_addPhoto)
         self.btn_encrypt.setEnabled(False)
         self.btn_encrypt.setObjectName("btn_encrypt")
@@ -93,8 +66,8 @@ class Ui_MainWindow(object):
         self.btn_decrypt.setEnabled(False)
         self.btn_decrypt.setObjectName("btn_decrypt")
         self.verticalLayout_5.addWidget(self.btn_decrypt)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        self.verticalLayout_5.addItem(spacerItem3)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        self.verticalLayout_5.addItem(spacerItem2)
         self.btn_encryptEmb = QtWidgets.QPushButton(self.tab_addPhoto)
         self.btn_encryptEmb.setEnabled(False)
         self.btn_encryptEmb.setObjectName("btn_encryptEmb")
@@ -103,21 +76,21 @@ class Ui_MainWindow(object):
         self.btn_decryptExtract.setEnabled(False)
         self.btn_decryptExtract.setObjectName("btn_decryptExtract")
         self.verticalLayout_5.addWidget(self.btn_decryptExtract)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout_5.addItem(spacerItem4)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.verticalLayout_5.addItem(spacerItem3)
         self.lb_msg = QtWidgets.QLabel(self.tab_addPhoto)
         self.lb_msg.setObjectName("lb_msg")
         self.verticalLayout_5.addWidget(self.lb_msg)
-        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        self.verticalLayout_5.addItem(spacerItem5)
+        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        self.verticalLayout_5.addItem(spacerItem4)
         self.btn_saveToLibrary = QtWidgets.QPushButton(self.tab_addPhoto)
         self.btn_saveToLibrary.setEnabled(False)
         self.btn_saveToLibrary.setCheckable(False)
         self.btn_saveToLibrary.setFlat(False)
         self.btn_saveToLibrary.setObjectName("btn_saveToLibrary")
         self.verticalLayout_5.addWidget(self.btn_saveToLibrary)
-        spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_5.addItem(spacerItem6)
+        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_5.addItem(spacerItem5)
         self.horizontalLayout_5.addLayout(self.verticalLayout_5)
         self.scrollArea_dst = QtWidgets.QScrollArea(self.tab_addPhoto)
         self.scrollArea_dst.setWidgetResizable(True)
@@ -159,13 +132,12 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "SecretPhotos"))
-        self.btn_enterPassword.setText(_translate("MainWindow", "Enter Password"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_viewLibrary), _translate("MainWindow", "Library"))
         self.btn_loadImage.setText(_translate("MainWindow", "Load Photo..."))
         self.ckbox_scrollMode.setText(_translate("MainWindow", "synchronous scroll"))
@@ -189,6 +161,7 @@ class Ui_MainWindow(object):
         self.actionOpen.setStatusTip(_translate("MainWindow", "Open file..."))
         self.actionOpen.setShortcut(_translate("MainWindow", "Ctrl+F"))
 
-from widgets.ImageDetailArea import ImageDetailArea
 from widgets.ComparePhotoTab import ComparePhotoTab
 from widgets.ViewExifTab import ViewExifTab
+from widgets.ImageDetailArea import ImageDetailArea
+from widgets.LibraryTab import LibraryTab

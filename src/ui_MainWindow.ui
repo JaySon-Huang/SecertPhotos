@@ -18,71 +18,15 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
       </property>
-      <widget class="QWidget" name="tab_viewLibrary">
+      <widget class="LibraryTab" name="tab_viewLibrary">
        <attribute name="title">
         <string>Library</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
-          <property name="spacing">
-           <number>-1</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="btn_enterPassword">
-            <property name="text">
-             <string>Enter Password</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QScrollArea" name="scrollArea">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="widgetResizable">
-           <bool>true</bool>
-          </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>964</width>
-             <height>546</height>
-            </rect>
-           </property>
-           <layout class="QGridLayout" name="gridLayout"/>
-          </widget>
-         </widget>
-        </item>
-       </layout>
       </widget>
       <widget class="QWidget" name="tab_addPhoto">
        <attribute name="title">
@@ -401,6 +345,12 @@ message =&gt;</string>
    <class>ViewExifTab</class>
    <extends>QWidget</extends>
    <header>widgets/ViewExifTab.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LibraryTab</class>
+   <extends>QWidget</extends>
+   <header>widgets/LibraryTab.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

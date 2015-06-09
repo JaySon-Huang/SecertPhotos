@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt, pyqtSignal, QRect, QSize
+from PyQt5.QtCore import Qt, pyqtSignal, QSize
 from PyQt5.QtWidgets import (
     QLabel, QWidget, QTreeWidgetItem, QHeaderView,
     QVBoxLayout, QHBoxLayout,
