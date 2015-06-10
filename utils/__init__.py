@@ -1,6 +1,27 @@
 #!/usr/bin/env python
 #encoding=utf-8
 import hashlib
+from PyQt5.QtWidgets import QInputDialog, QLineEdit
+
+# 运行时数据
+runtime = {
+    'ori': {},
+    'dst': {},
+    'seed': None,
+}
+# static strings
+strings = {
+    'format': {
+        'extract': 'Message extract:\n%s',
+    },
+}
+
+
+def getPasswordInput(parent=None):
+    return QInputDialog.getText(
+        parent, 'Enter your password', 'Password:',
+        QLineEdit.Password
+    )
 
 
 def password2seed(password):

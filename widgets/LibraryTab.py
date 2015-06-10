@@ -11,6 +11,7 @@ from PyQt5.QtWidgets import QWidget, QFileDialog, QInputDialog, QLineEdit, QSize
 
 from .ui_LibraryTab import Ui_Tab
 from .GridWidget import GridWidget
+from utils import getPasswordInput
 
 
 class LibraryTab(QWidget, Ui_Tab):
@@ -30,10 +31,7 @@ class LibraryTab(QWidget, Ui_Tab):
 
     @pyqtSlot()
     def btn_enterPassword_clicked(self):
-        password, isOK = QInputDialog.getText(
-            self, 'Enter your password', 'Password:',
-            QLineEdit.Password
-        )
+        password, isOK = getPasswordInput(self)
         if isOK:
             print('Password is:', password)
             self.passwordEntered.emit(password)
