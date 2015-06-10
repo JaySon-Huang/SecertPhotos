@@ -3,20 +3,15 @@
 
 import sys
 
-from PyQt5.QtCore import (
-    QDir, Qt, QVariant, pyqtSlot
-)
+from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QItemDelegate, QLabel, QHeaderView, QGridLayout,
-    QWidget, QScrollArea, QGraphicsWidget, QFileDialog, QTreeWidgetItem,
-    QSizePolicy, QInputDialog, QLineEdit
-)
-from PyQt5.QtGui import (
-    QPixmap, QStandardItemModel, QStandardItem
+    QApplication, QMainWindow,
 )
 
 from widgets.ui_MainWindow import Ui_MainWindow
-from utils import password2seed
+from utils import (
+    password2seed, runtime
+)
 from utils.fileUtils import (
     paths, setupPaths
 )
@@ -37,7 +32,6 @@ class MainWindow(QMainWindow):
         self.seed = None
 
         self.setUpTabLibrary(self.ui)
-        self.setUpTabAddPhoto(self.ui)
 
     def setUpTabLibrary(self, ui):
         ui.tabWidget.currentChanged.connect(
@@ -50,12 +44,9 @@ class MainWindow(QMainWindow):
             self.setSeed
         )
 
-    def setUpTabAddPhoto(self, ui):
-        pass
-
     @pyqtSlot(str)
     def setSeed(self, pwd):
-        self.seed = password2seed(pwd)
+        runtime['seed'] = password2seed(pwd)
 
     @pyqtSlot(int)
     def on_selected_tab_changed(self, index):

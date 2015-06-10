@@ -3,6 +3,8 @@
 import hashlib
 from PyQt5.QtWidgets import QInputDialog, QLineEdit
 
+DEBUG = False
+
 # 运行时数据
 runtime = {
     'ori': {},

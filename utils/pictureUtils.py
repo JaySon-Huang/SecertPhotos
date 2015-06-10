@@ -4,7 +4,7 @@
 from PIL import Image
 from PIL import ImageEnhance
 
-DEBUG = False
+from . import DEBUG
 
 
 def make_highlight(image):
