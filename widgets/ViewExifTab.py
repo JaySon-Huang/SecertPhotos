@@ -49,12 +49,10 @@ class ViewExifTab(QWidget, Ui_Tab):
             self.tv_exifTable.insertRow(row)
             item = QTableWidgetItem(key)
             self.tv_exifTable.setItem(row, 0, item)
-            # print(key, '->', item)
             self.tv_exifTable.setSpan(row, 0, 1, 2)
             row += 1
             for entry in entries:
                 _type, fmt, ncomp, comps = entry
-                # print(entry)
                 self.tv_exifTable.insertRow(row)
                 # type
                 item = QTableWidgetItem(str(_type))
@@ -74,4 +72,3 @@ class ViewExifTab(QWidget, Ui_Tab):
                     item = QTableWidgetItem(str(comps))
                 self.tv_exifTable.setItem(row, 1, item)
                 row += 1
-b'ACD Systems \xca\xfd\xc2\xeb\xb3\xc9\xcf\xf1\x00'

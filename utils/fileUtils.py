@@ -4,6 +4,8 @@
 import os
 import sys
 
+from .logUtils import Log
+
 DEBUG = True
 
 # static paths
@@ -21,8 +23,7 @@ def setupPaths():
         exec_path = path
     else:  # 编译后的文件, 返回它的上一级目录
         exec_path = os.path.dirname(path)
-    if DEBUG:
-        print('running @ root path:', exec_path)
+    Log.d('running @ root path:{}'.format(exec_path))
     paths['root'] = exec_path
     paths['library'] = os.path.join(exec_path, 'library')
     paths['tmp'] = os.path.join(exec_path, 'tmp')

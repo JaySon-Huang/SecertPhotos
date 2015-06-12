@@ -11,6 +11,7 @@ from .ui_ComparePhotoTab import Ui_Tab
 from .ShowResultDialog import ShowResultDialog
 from utils.pictureUtils import compare_images
 from utils.fileUtils import getTmpFilepath, getLibFilepath
+from utils.logUtils import Log
 
 
 class ComparePhotoTab(QWidget, Ui_Tab):
@@ -59,7 +60,7 @@ class ComparePhotoTab(QWidget, Ui_Tab):
             self.imagesPath['ori'], self.imagesPath['cmp']
         )
         filepath = getTmpFilepath(self.imagesPath['ori'])
-        print('result of compare image save to:', filepath)
+        Log.i('result of compare image save to:{}'.format(filepath))
         img.save(filepath, quality=90)
         self.dialog = ShowResultDialog(filepath)
         self.dialog.exec_()

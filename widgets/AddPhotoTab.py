@@ -15,6 +15,7 @@ from utils import runtime, getPasswordInput, strings, password2seed
 from utils.fileUtils import (
     paths, getTmpFilepath, getLibFilepath, moveToLibrary
 )
+from utils.logUtils import Log
 from cipher.JPEGImageCipher import JPEGImageCipher1 as JPEGImageCipher
 # from cipher.JPEGImageCipher import JPEGImageCipher0 as JPEGImageCipher
 
@@ -122,7 +123,7 @@ class AddPhotoTab(QWidget, Ui_Tab):
                 'Message:'
             )
             bdata = msg.encode('utf-8')  # str -> bytes
-            print('get `%s`<=>`%s` from input dialog' % (msg, bdata))
+            Log.i('get `{}`<=>`{}` from input dialog'.format(msg, bdata))
             img = cipher.encrtptAndEmbData(runtime['ori']['image'], bdata)
             self.__loadDstPhoto(img=img, msg=msg, clear=True)
         else:
@@ -147,7 +148,7 @@ class AddPhotoTab(QWidget, Ui_Tab):
         if toExtractMessage:
             img, bdata = cipher.decryptAndExtractData(runtime['ori']['image'])
             msg = bdata.decode('utf-8')  # bytes -> str
-            print('The message extract is:`%s`<=>`%s`' % (bdata, msg))
+            Log.i('The message extract is:`{}`<=>`{}`'.format(bdata, msg))
             self.lb_msg.setText(
                 strings['format']['extract'] % msg
             )

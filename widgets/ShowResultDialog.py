@@ -9,6 +9,7 @@ import os
 from PyQt5.QtWidgets import QDialog, QFileDialog
 
 from .ui_ShowResultDialog import Ui_Dialog
+from utils.logUtils import Log
 
 
 class ShowResultDialog(QDialog, Ui_Dialog):
@@ -28,4 +29,4 @@ class ShowResultDialog(QDialog, Ui_Dialog):
         filepath, _ = QFileDialog.getSaveFileName(self)
         if filepath:
             os.rename(self.image_path, filepath)
-            print('mv `%s` -> `%s`' % (self.image_path, filepath))
+            Log.i('mv `{}` -> `{}`'.format(self.image_path, filepath))

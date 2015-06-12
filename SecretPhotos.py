@@ -15,6 +15,7 @@ from utils import (
 from utils.fileUtils import (
     paths, setupPaths
 )
+from utils.logUtils import Log
 
 pics = ['lfs.jpg', 'tmp0.jpg', 'tmp1.jpg']
 
@@ -32,6 +33,7 @@ class MainWindow(QMainWindow):
         self.seed = None
 
         self.setUpTabLibrary(self.ui)
+        Log.i('MainWindow setup.')
 
     def setUpTabLibrary(self, ui):
         ui.tabWidget.currentChanged.connect(
@@ -55,6 +57,7 @@ class MainWindow(QMainWindow):
 
 
 def main():
+    Log.init()
     setupPaths()
 
     app = QApplication(sys.argv)

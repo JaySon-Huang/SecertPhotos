@@ -5,6 +5,7 @@ from PIL import Image
 from PIL import ImageEnhance
 
 from . import DEBUG
+from .logUtils import Log
 
 
 def make_highlight(image):
@@ -30,9 +31,8 @@ def make_difference(image, restruct_image, highlight_img):
                 difference_img.putpixel((w, h), tuple(newVals))
                 if DEBUG:
                     cnt += 1
-                    print(
-                        'diff @ (%4d, %4d): %s <-> %s'
-                        % (w, h, d0[w, h], d1[w, h])
+                    Log.d(
+                        'diff @ (%4d, %4d): %s <-> %s'.format(w, h, d0[w, h], d1[w, h])
                     )
             else:
                 difference_img.putpixel(
@@ -41,9 +41,10 @@ def make_difference(image, restruct_image, highlight_img):
                 )
     if DEBUG:
         total_size = width * height
-        print(
-            'diff: %d, total: %d, diff precent:%f%%'
-            % (cnt, total_size, cnt/total_size)
+        Log.d(
+            'diff: {}, total: {}, diff precent:{}%'.format(
+                cnt, total_size, cnt/total_size
+            )
         )
     return difference_img
 
